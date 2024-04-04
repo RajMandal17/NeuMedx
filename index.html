@@ -234,91 +234,67 @@
     </div>
 </div>
 
+    
 <div class="communicate">
     <h3></h3>
     <p></p>
-    <a href="#contact"><button class="btn">Contact Now</button></a>
+    
+    <article class="contact" data-page="contact">
+
+      <header>
+        <h2 class="h2 article-title">Contact</h2>
+      </header>
+      <section class="contact-form">
+        <h3 class="h3 form-title">Contact Form</h3>
+       <form id="feedback-form" class="form" data-form>
+          <div class="input-wrapper">
+            <input type="text" name="name" class="form-input" placeholder="Full name" required data-form-input>
+            <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+          </div>
+          <textarea name="feedback" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+          <button class="form-btn" type="submit"   data-form-btn>
+            <ion-icon name="paper-plane"></ion-icon>
+            <span>Send Message</span>
+          </button>
+        </form>
+        
+        <div id="success-message" style="display: none; padding-top: 20px; color: white;">
+          Form submitted successfully! Thank you for your feedback.
+        </div>
+        
+        <script>
+          document.getElementById('feedback-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            fetch('https://script.google.com/macros/s/AKfycbwnwiubMs68poBxkPtrFVDS2FTmcFT0w482_NN5YMvornDdp29oCkHUFttmLpQZgf6srQ/exec', {
+              method: 'POST',
+              body: JSON.stringify(Object.fromEntries(formData.entries())),
+            })
+            .then(response => response.text())
+            .then(data => {
+              console.log(data); // Response from the script (optional)
+              
+              // Display success message
+              var successMessage = document.getElementById('success-message');
+              successMessage.style.display = 'block';
+              
+              // You can optionally reset the form
+              document.getElementById('feedback-form').reset();
+            })
+            .catch(error => {
+              console.error('Error:', error);
+            });
+          });
+        </script>
+      </section>
+      
+    
+    </article>
+
 </div>
-<!-- 
-<div class="testimonials mt-100">
-    <div class="container">
-        <div class="section-header" style="text-align: center;">
-            <h2 style="margin-top: -15rem;">Testimonials</h2>
-            <p style="font-size: 2rem;">
-                See what people have to say about us
-            </p>
-        </div>
 
-        <div class="owl-carousel testimonials-carousel">
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-1.jpg" alt="Testimonial image">
-                </div>
-                <div class="testimonial-text">
-                    <h3>Person-1</h3>
-                    <h4>Designation</h4>
-                    <p>
-                        Testimonial
-
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-2.jpg" alt="Testimonial image">
-                </div>
-                <div class="testimonial-text">
-                    <h3>Person-2</h3>
-                    <h4>Designation</h4>
-                    <p>
-                        Testimonial
-
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-3.jpg" alt="Testimonial image">
-                </div>
-                <div class="testimonial-text">
-                    <h3>Person-3</h3>
-                    <h4>Designation</h4>
-                    <p>
-                        Testimonial
-
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-4.jpg" alt="Testimonial image">
-                </div>
-                <div class="testimonial-text">
-                    <h3>Person-4</h3>
-                    <h4>Designation</h4>
-                    <p>
-                        Testimonial
-
-                    </p>
-                </div>
-            </div>
-            <div class="testimonial-item row align-items-center">
-                <div class="testimonial-img">
-                    <img src="./images/testimonial-5.jpg" alt="Testimonial image">
-                </div>
-                <div class="testimonial-text">
-                    <h3>Person-5</h3>
-                    <h4>Designation</h4>
-                    <p>
-                        Testimonial
-
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- 
+    
+    <!-- 
 <div class="clients mt-100">
     <div class="container">
         <div class="section-header">
