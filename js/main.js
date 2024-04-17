@@ -84,6 +84,6 @@ function kpengine() {
 
 
 function healthSupport() {
-    window.open("https://healthsupport247.in/#", "_blank");
+    window.open("https://healthcheckup247.up.railway.app/", "_blank");
 }
 
